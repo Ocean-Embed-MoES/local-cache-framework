@@ -1,6 +1,6 @@
 # OceanEmbed — Agent Guide
 
-You are working on **SIH 2026 PS#01**: reconstruct 3D subsurface ocean temperature (0–1000 m) across the North Indian Ocean from 2D satellite surface observations.
+You are working on **SIH 2026 PS#26066**: reconstruct 3D subsurface ocean temperature (0–1000 m) across the North Indian Ocean from 2D satellite surface observations.
 
 This notebook gives you all the data you need. It handles credentials, downloads, and caching. **You handle everything else.**
 
@@ -121,17 +121,7 @@ The framework caches everything on the internal SSD at:
 /run/media/mohan-krishna/vamSHE/data-pool/cache/
 ```
 
-**You do not need to think about it.** It works automatically:
-
-| Situation | What happens |
-|---|---|
-| First call for a date range | Downloads from server, saves to SSD |
-| Same call again | Returns from SSD instantly — no network |
-| Wider date range than cached | Downloads only the missing dates, merges |
-| Narrower date range than cached | Returns from SSD instantly, sliced |
-| Smaller bbox than cached | Returns from SSD instantly, sliced |
-| Larger bbox than cached | Downloads fresh for the new bbox |
-| `force=True` passed | Ignores cache, re-downloads everything |
+**You do not need to think about it.** It works automatically
 
 ```python
 # Inspect the cache
